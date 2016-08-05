@@ -3,21 +3,21 @@ package com.wyman.segment;
 import java.util.Set;
 
 import com.wyman.query.dto.Customer;
-import com.wyman.query.dto.TextProperty;
+import com.wyman.query.dto.SetProperty;
 
-public class TextField extends Field<String> {
+public class SetField extends Field<String> {
 
-	private TextField(String key, String value, AssignmentOp op) {
+	private SetField(String key, String value, AssignmentOp op) {
 		super(key, value, op);
 	}
 
-	public static TextField equal(String key, String value) {
-		return new TextField(key, value, AssignmentOp.Equals);
+	public static SetField equal(String key, String value) {
+		return new SetField(key, value, AssignmentOp.Equals);
 	}
 
 	@Override
 	protected boolean match(Customer customer) {
-		Set<TextProperty> props = customer.getTextProps();
+		Set<SetProperty> props = customer.getSetProps();
 		if (props.isEmpty()) {
 			return false;
 		} else {

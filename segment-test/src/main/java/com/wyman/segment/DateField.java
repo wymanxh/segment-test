@@ -13,15 +13,15 @@ public class DateField extends Field<Date> {
 	}
 
 	public static DateField equals(String key, Date value) {
-		return new DateField(key, value, AssignmentOp.EQ);
+		return new DateField(key, value, AssignmentOp.Equals);
 	}
 
 	public static DateField before(String key, Date value) {
-		return new DateField(key, value, AssignmentOp.LT);
+		return new DateField(key, value, AssignmentOp.LessThan);
 	}
 
 	public static DateField after(String key, Date value) {
-		return new DateField(key, value, AssignmentOp.GT);
+		return new DateField(key, value, AssignmentOp.GreaterThan);
 	}
 
 	@Override
@@ -29,12 +29,14 @@ public class DateField extends Field<Date> {
 		Set<DateProperty> props = customer.getDateProps();
 		if (!props.isEmpty()) {
 			switch (op) {
-			case EQ:
-				return props.stream().anyMatch(p -> key.equals(p.getId()) && value.equals(p.getDate()));
-			case GT:
-				return props.stream().anyMatch(p -> key.equals(p.getId()) && value.before(p.getDate()));
-			case LT:
-				return props.stream().anyMatch(p -> key.equals(p.getId()) && value.after(p.getDate()));
+			case Equals:
+				return props.stream().anyMatch(p -> key.equals(p.getId()) && value.equals(p.getValue()));
+			case GreaterThan:
+				return props.stream().anyMatch(p -> key.equals(p.getId()) && value.before(p.getValue()));
+			case LessThan:
+				return props.stream().anyMatch(p -> key.equals(p.getId()) && value.after(p.getValue()));
+			default:
+				return false;
 			}
 		}
 		return false;

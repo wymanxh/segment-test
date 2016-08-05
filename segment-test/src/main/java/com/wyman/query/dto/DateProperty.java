@@ -4,21 +4,21 @@ import java.util.Date;
 
 public class DateProperty extends Property {
 
-	private Date date;
+	private Date value;
 
 	public DateProperty() {
 	}
 
-	public DateProperty(String id, Date date) {
+	public DateProperty(String id, Date value) {
 		super(id);
-		this.date = date;
+		this.value = value;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getValue() {
+		return value;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setValue(Date value) {
+		this.value = value;
 	}
 }

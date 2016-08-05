@@ -15,6 +15,6 @@ public abstract class Field<T extends Object> extends Criteria {
 	}
 
 	public enum AssignmentOp {
-		EQ, GT, LT
+		Equals, GreaterThan, LessThan, Contains
 	}
 }
