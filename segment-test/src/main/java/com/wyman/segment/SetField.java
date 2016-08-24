@@ -2,8 +2,8 @@ package com.wyman.segment;
 
 import java.util.Set;
 
-import com.wyman.query.dto.Customer;
-import com.wyman.query.dto.SetProperty;
+import com.wyman.query.mongo.dto.Customer;
+import com.wyman.query.mongo.dto.SetProperty;
 
 public class SetField extends Field<String> {
 

@@ -3,8 +3,8 @@ package com.wyman.segment;
 import java.math.BigDecimal;
 import java.util.Set;
 
-import com.wyman.query.dto.Customer;
-import com.wyman.query.dto.NumberProperty;
+import com.wyman.query.mongo.dto.Customer;
+import com.wyman.query.mongo.dto.NumberProperty;
 
 public class NumberField extends Field<Number> {
 

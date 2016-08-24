@@ -2,7 +2,7 @@ package com.wyman.segment;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.wyman.query.dto.Customer;
+import com.wyman.query.mongo.dto.Customer;
 
 public class EmailDomainField extends Field<String> {
 

@@ -3,8 +3,8 @@ package com.wyman.segment;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
-import com.wyman.query.dto.Customer;
-import com.wyman.query.dto.MultiSetProperty;
+import com.wyman.query.mongo.dto.Customer;
+import com.wyman.query.mongo.dto.MultiSetProperty;
 
 public class MultiSetField extends Field<Set<String>> {
 

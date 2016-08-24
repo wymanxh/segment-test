@@ -1,13 +1,18 @@
-package com.wyman.query.dto;
+package com.wyman.query.mongo.dto;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.google.common.collect.ImmutableSet;
 
 @Document(collection = "segment_customer")
+@CompoundIndexes(value = { @CompoundIndex(def = "{'dbId':1, 'tags':1}", name = "db_tag_idx", background = true) })
 public class Customer {
 
 	// basic information
@@ -17,6 +22,7 @@ public class Customer {
 	private String firstName;
 	private String lastName;
 	private String email;
+	@Indexed
 	private String dbId;
 
 	// customize information
@@ -25,6 +31,13 @@ public class Customer {
 	private Set<NumberProperty> numberProps = ImmutableSet.of();
 	private Set<SetProperty> setProps = ImmutableSet.of();
 	private Set<MultiSetProperty> multisetProps = ImmutableSet.of();
+
+	private Set<String> tags = new HashSet<>();
+	private Set<Activity> activities = new HashSet<>();
+
+	public void addActivity(Activity activity) {
+		activities.add(activity);
+	}
 
 	public void addTextProperties(TextProperty... props) {
 		this.textProps = new ImmutableSet.Builder<TextProperty>().addAll(textProps).add(props).build();
@@ -42,7 +55,7 @@ public class Customer {
 		this.setProps = new ImmutableSet.Builder<SetProperty>().addAll(setProps).add(props).build();
 	}
 
-	public void addSetProperties(MultiSetProperty... props) {
+	public void addMultiSetProperties(MultiSetProperty... props) {
 		this.multisetProps = new ImmutableSet.Builder<MultiSetProperty>().addAll(multisetProps).add(props).build();
 	}
 
@@ -132,5 +145,21 @@ public class Customer {
 
 	public Set<NumberProperty> getNumberProps() {
 		return ImmutableSet.copyOf(numberProps);
+	}
+
+	public Set<String> getTags() {
+		return tags;
+	}
+
+	public void setTags(Set<String> tags) {
+		this.tags = tags;
+	}
+
+	public Set<Activity> getActivities() {
+		return activities;
+	}
+
+	public void setActivities(Set<Activity> activities) {
+		this.activities = activities;
 	}
 }

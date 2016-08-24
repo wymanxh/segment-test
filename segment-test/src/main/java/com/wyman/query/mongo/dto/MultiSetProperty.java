@@ -1,4 +1,4 @@
-package com.wyman.query.dto;
+package com.wyman.query.mongo.dto;
 
 import java.util.Set;
 

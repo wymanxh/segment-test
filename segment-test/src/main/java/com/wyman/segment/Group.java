@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.google.common.collect.ImmutableList;
-import com.wyman.query.dto.Customer;
+import com.wyman.query.mongo.dto.Customer;
 
 public class Group extends Criteria {
 

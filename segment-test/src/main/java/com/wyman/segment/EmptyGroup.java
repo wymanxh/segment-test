@@ -1,6 +1,6 @@
 package com.wyman.segment;
 
-import com.wyman.query.dto.Customer;
+import com.wyman.query.mongo.dto.Customer;
 
 public class EmptyGroup extends Group {
 

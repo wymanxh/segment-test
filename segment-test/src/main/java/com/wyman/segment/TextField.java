@@ -2,8 +2,8 @@ package com.wyman.segment;
 
 import java.util.Set;
 
-import com.wyman.query.dto.Customer;
-import com.wyman.query.dto.TextProperty;
+import com.wyman.query.mongo.dto.Customer;
+import com.wyman.query.mongo.dto.TextProperty;
 
 public class TextField extends Field<String> {
 

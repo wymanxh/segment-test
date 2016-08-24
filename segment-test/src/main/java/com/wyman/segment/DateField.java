@@ -3,8 +3,8 @@ package com.wyman.segment;
 import java.util.Date;
 import java.util.Set;
 
-import com.wyman.query.dto.Customer;
-import com.wyman.query.dto.DateProperty;
+import com.wyman.query.mongo.dto.Customer;
+import com.wyman.query.mongo.dto.DateProperty;
 
 public class DateField extends Field<Date> {
 
